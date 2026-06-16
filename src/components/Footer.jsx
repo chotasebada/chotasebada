@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaInstagram, FaYoutube, FaLinkedin, FaBehance } from 'react-icons/fa';
 import logo from '../assets/4e47a432-b57c-4c78-8106-a97027500496-removebg-preview.png';
@@ -11,13 +11,26 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const location = useLocation();
+
   return (
     <footer className="bg-gray-900" style={{ borderTop: '1px solid rgba(249,115,22,0.1)' }}>
       <div className="section-container section">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <img src={logo} alt="Chota.Se.BADA" className="h-24 w-auto object-contain mb-3" />
+            <Link
+              to="/"
+              onClick={(e) => {
+                if (location.pathname === '/') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
+              className="inline-block cursor-pointer"
+            >
+              <img src={logo} alt="Chota.Se.BADA" className="h-24 w-auto object-contain mb-3" />
+            </Link>
             <p className="text-gray-400 text-sm mb-6" style={{ lineHeight: 1.7 }}>
               From Small to Big. That&apos;s the journey we build together.
             </p>

@@ -97,7 +97,7 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="section" style={{ background: '#fff7ed' }}>
+      <section className="section" style={{ background: '#FFFFFF' }}>
         <div className="section-container">
           <motion.div className="text-center mb-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 font-display">Our Values</h2>
@@ -136,7 +136,7 @@ export default function About() {
       </section>
 
       {/* Advantage */}
-      <section className="section" style={{ background: '#fff7ed' }}>
+      <section className="section" style={{ background: '#FFFFFF' }}>
         <div className="section-container">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-10 text-center font-display">The Chota Se Bada Advantage</h2>
           <div className="grid md:grid-cols-3 gap-8">

@@ -11,13 +11,69 @@ import creatorManagementImg from '../assets/creator management.png';
 export default function Services() {
   const navigate = useNavigate();
   const services = [
-    { number: '01', image: videoEditingImg, name: 'Video Editing', objPos: '50% 30%', description: 'Cinematic cuts, reels, YouTube videos, and brand films that captivate and convert.', deliverables: ['Cinematic Cuts', 'Reels & Shorts', 'YouTube Videos', 'Brand Films', 'Motion Graphics'] },
-    { number: '02', image: graphicDesignImg, name: 'Graphic Design', objPos: '50% 10%', description: 'Logos, brand identity, social creatives, and packaging that defines your brand.', deliverables: ['Logo Design', 'Brand Identity', 'Social Creatives', 'Packaging Design', 'Marketing Materials'] },
-    { number: '03', image: socialMediaImg, name: 'Social Media Marketing', objPos: '50% 15%', description: 'Strategy, content calendar, ad campaigns, and community management that drives growth.', deliverables: ['Content Strategy', 'Calendar Planning', 'Ad Campaigns', 'Community Management', 'Analytics Reports'] },
-    { number: '04', image: videoProductionImg, name: 'Video Production', objPos: '50% 15%', description: 'End-to-end shoots, scripting, direction, and post-production with cinematic quality.', deliverables: ['Pre-Production', 'Shooting', 'Post-Production', 'Color Grading', 'Sound Design'] },
-    { number: '05', image: webServicesImg, name: 'Web Services', objPos: '50% 15%', description: 'Website design, landing pages, and UI/UX that converts visitors into customers.', deliverables: ['Web Design', 'Landing Pages', 'UI/UX Design', 'Responsive Development', 'CMS Setup'] },
-    { number: '06', image: seoManagementImg, name: 'SEO Management', objPos: '50% 15%', description: 'On-page, off-page, local SEO, and analytics that ranks you on Google.', deliverables: ['On-Page SEO', 'Off-Page SEO', 'Local SEO', 'Keyword Research', 'Analytics & Reporting'] },
-    { number: '07', image: creatorManagementImg, name: 'Creator Management', objPos: '50% 15%', description: 'Brand deals, content strategy, and audience growth for creators and influencers.', deliverables: ['Brand Deal Negotiation', 'Content Strategy', 'Audience Growth', 'Collaboration Setup', 'Performance Tracking'] },
+    { 
+      number: '01', image: videoEditingImg, name: 'Video Editing', objPos: '50% 30%', 
+      description: 'We transform raw footage into compelling stories. Whether it’s high-retention YouTube edits, fast-paced Instagram reels, or premium brand films, our video editing is designed to hold attention and drive action.', 
+      features: [
+        { title: 'Cinematic Cuts & Flow', desc: 'Crafting the perfect narrative structure to keep viewers hooked from the first second.' },
+        { title: 'Color Grading & Sound', desc: 'Elevating production value with professional color correction and immersive sound design.' },
+        { title: 'Platform-Optimized', desc: 'Formats tailored for YouTube, TikTok, Instagram, and LinkedIn to maximize algorithm reach.' }
+      ] 
+    },
+    { 
+      number: '02', image: graphicDesignImg, name: 'Graphic Design', objPos: '50% 10%', 
+      description: 'Visual identity that speaks volumes. We create striking graphics that establish authority, build trust, and communicate your brand\'s core message instantly across all digital and physical touchpoints.', 
+      features: [
+        { title: 'Brand Identity', desc: 'Cohesive logos, typography, and color palettes that make your brand memorable.' },
+        { title: 'Social Creatives', desc: 'Thumb-stopping carousel posts, banners, and stories designed for high engagement.' },
+        { title: 'Marketing Collateral', desc: 'Premium pitch decks, packaging, and digital brochures that convert prospects.' }
+      ] 
+    },
+    { 
+      number: '03', image: socialMediaImg, name: 'Social Media Marketing', objPos: '50% 15%', 
+      description: 'We don\'t just post; we build communities. Our data-driven social media strategies ensure your brand remains culturally relevant, actively engaged, and consistently growing across all platforms.', 
+      features: [
+        { title: 'Data-Driven Strategy', desc: 'Tailored content calendars based on audience insights and platform algorithms.' },
+        { title: 'Community Management', desc: 'Active engagement with your followers to build brand loyalty and trust.' },
+        { title: 'Targeted Campaigns', desc: 'Strategic ad placements and organic growth tactics to maximize ROI.' }
+      ] 
+    },
+    { 
+      number: '04', image: videoProductionImg, name: 'Video Production', objPos: '50% 15%', 
+      description: 'From concept to final cut, we handle the entire production pipeline. We bring high-end equipment, creative direction, and cinematic expertise to deliver visuals that rival premium ad agencies.', 
+      features: [
+        { title: 'Creative Scripting', desc: 'Developing compelling concepts and storyboards that align with your campaign goals.' },
+        { title: 'On-Location Shooting', desc: 'Professional lighting, audio, and camera work directed by industry experts.' },
+        { title: 'End-to-End Execution', desc: 'Seamless transition from pre-production planning to final post-production delivery.' }
+      ] 
+    },
+    { 
+      number: '05', image: webServicesImg, name: 'Web Services', objPos: '50% 15%', 
+      description: 'Your digital storefront needs to be fast, beautiful, and conversion-optimized. We build modern, responsive web experiences that turn casual browsers into loyal customers.', 
+      features: [
+        { title: 'UI/UX Design', desc: 'Intuitive user interfaces built on deep research of user behavior and psychology.' },
+        { title: 'Responsive Development', desc: 'Flawless performance across desktop, tablet, and mobile devices.' },
+        { title: 'Conversion Optimization', desc: 'Strategic layouts and clear CTAs designed to maximize lead generation and sales.' }
+      ] 
+    },
+    { 
+      number: '06', image: seoManagementImg, name: 'SEO Management', objPos: '50% 15%', 
+      description: 'Dominate search engine results. We implement technical, on-page, and off-page SEO strategies that drive compounding organic traffic and position you as the top authority in your niche.', 
+      features: [
+        { title: 'Technical SEO', desc: 'Optimizing site speed, architecture, and core web vitals for search engine crawlers.' },
+        { title: 'Content & Keyword Strategy', desc: 'Targeting high-intent search terms to capture your ideal customer audience.' },
+        { title: 'Authority Building', desc: 'Strategic link-building and local SEO to cement your digital footprint.' }
+      ] 
+    },
+    { 
+      number: '07', image: creatorManagementImg, name: 'Creator Management', objPos: '50% 15%', 
+      description: 'We help digital talent scale their personal brands into scalable businesses. From negotiating premium sponsorships to diversifying revenue streams, we handle the business so you can focus on creating.', 
+      features: [
+        { title: 'Brand Deal Negotiation', desc: 'Securing high-paying sponsorships and long-term brand partnerships.' },
+        { title: 'Audience Growth Strategy', desc: 'Actionable blueprints for scaling your following across multiple platforms.' },
+        { title: 'Monetization Pipelines', desc: 'Building products, merchandise, and new revenue channels for sustainable income.' }
+      ] 
+    },
   ];
 
   return (
@@ -77,13 +133,18 @@ export default function Services() {
                   <div className="text-5xl md:text-6xl font-bold mb-2.5" style={{ color: 'rgba(249,115,22,0.15)', fontFamily: '"Playfair Display", serif' }}>{service.number}</div>
                   <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3" style={{ fontFamily: '"Playfair Display", Georgia, serif' }}>{service.name}</h3>
                   <p className="text-gray-500 text-base mb-6 leading-relaxed">{service.description}</p>
-                  <div className="mb-6">
-                    <h4 className="text-gray-900 font-semibold mb-3">Key Deliverables:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {service.deliverables.map((item, i) => (
-                        <span key={i} className="px-3.5 py-1.5 rounded-full text-xs font-medium" style={{ background: '#fff7ed', color: '#ea580c', border: '1px solid #fed7aa' }}>{item}</span>
-                      ))}
-                    </div>
+                  <div className="mb-8 space-y-4">
+                    {service.features.map((feature, i) => (
+                      <div key={i} className="flex flex-col">
+                        <span className="font-bold text-gray-900 flex items-center gap-2 mb-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                          {feature.title}
+                        </span>
+                        <span className="text-sm text-gray-500 leading-relaxed pl-3.5 border-l-2 border-orange-100 ml-[2px]">
+                          {feature.desc}
+                        </span>
+                      </div>
+                    ))}
                   </div>
                   <Link to="/contact" className="btn-primary">Get This Service →</Link>
                 </motion.div>
@@ -94,22 +155,22 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="section" style={{ background: 'linear-gradient(135deg, #F97316 0%, #ea580c 50%, #fb923c 100%)', position: 'relative', overflow: 'hidden' }}>
+      <section className="section" style={{ background: '#FFFFFF', position: 'relative', overflow: 'hidden', borderTop: '1px solid #f3f4f6' }}>
         {/* Decorative */}
-        <div style={{ position: 'absolute', top: '-80px', left: '-80px', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: '-60px', right: '-60px', width: '250px', height: '250px', borderRadius: '50%', background: 'rgba(255,255,255,0.04)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: '-80px', left: '-80px', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(249,115,22,0.03)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-60px', right: '-60px', width: '250px', height: '250px', borderRadius: '50%', background: 'rgba(249,115,22,0.03)', pointerEvents: 'none' }} />
         <div className="section-container text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 font-display" style={{ letterSpacing: '-0.02em' }}>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 font-display" style={{ letterSpacing: '-0.02em' }}>
               Let&apos;s Build Something Great
             </h2>
-            <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto" style={{ lineHeight: 1.7 }}>
+            <p className="text-gray-600 text-lg mb-8 max-w-xl mx-auto" style={{ lineHeight: 1.7 }}>
               Tell us your vision. We&apos;ll help you turn it into content that grows.
             </p>
             <motion.button
-              className="bg-white font-bold text-lg px-10 py-4 rounded-xl transition-all duration-300"
-              style={{ color: '#F97316', cursor: 'pointer', border: 'none' }}
-              whileHover={{ scale: 1.05, boxShadow: '0 8px 32px rgba(0,0,0,0.2)' }}
+              className="btn-primary"
+              style={{ cursor: 'pointer' }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
               onClick={() => navigate('/contact')}
             >

@@ -289,7 +289,7 @@ export default function IndustriesSection() {
   }
 
   return (
-    <section style={{ background: '#FAFAFA', padding: '6rem 0' }}>
+    <section style={{ background: '#FFFFFF', padding: '6rem 0' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
 
         {/* Header */}

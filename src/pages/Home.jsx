@@ -50,10 +50,10 @@ function VisionSection() {
   }, [active]);
 
   return (
-    <div className="flex flex-col md:flex-row" style={{ height: '650px' }}>
+    <div className="flex flex-col md:flex-row md:min-h-[650px]">
       {/* Left Panel */}
       <div
-        className="w-full md:w-[42%] relative flex flex-col justify-between overflow-hidden px-8 py-12 md:p-12"
+        className="w-full md:w-[42%] relative flex flex-col justify-between overflow-hidden px-5 py-8 md:px-8 md:py-12"
         style={{ background: 'linear-gradient(135deg, #F97316 0%, #ea580c 50%, #fb923c 100%)' }}
       >
         <div className="absolute w-80 h-80 rounded-full pointer-events-none"
@@ -65,7 +65,7 @@ function VisionSection() {
           Chota Se Bada &nbsp;·&nbsp; Hyderabad
         </p>
 
-        <div className="flex flex-col gap-3 my-12">
+        <div className="flex flex-col gap-3 my-6 md:my-12">
           {visionData.map((item, idx) => (
             <div key={idx}>
               <button onClick={() => setActive(idx)} className="w-full text-left">
@@ -78,12 +78,11 @@ function VisionSection() {
                     boxShadow: active === idx ? '0 8px 32px rgba(0,0,0,0.2)' : 'none',
                   }}
                 >
-                  <div className="flex items-center gap-4">
-                    <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.7rem', fontFamily: 'monospace' }}>
+                  <div className="flex items-center gap-3 md:gap-4">
+                    <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.68rem', fontFamily: 'monospace' }}>
                       {item.number}
                     </span>
-                    <span className="font-bold transition-all duration-300" style={{
-                      fontSize: '1.05rem',
+                    <span className="font-bold transition-all duration-300 text-sm md:text-[1.05rem]" style={{
                       color: active === idx ? '#ffffff' : 'rgba(255,255,255,0.45)',
                     }}>
                       {item.title}
@@ -120,11 +119,11 @@ function VisionSection() {
 
       {/* Right Panel */}
       <div
-        className="w-full md:w-[58%] relative flex items-start px-6 py-16 md:py-20 md:pr-16 md:pl-24 overflow-hidden"
-        style={{ background: '#F8F8F6' }}
+        className="w-full md:w-[58%] relative flex items-start px-5 py-8 md:px-6 md:py-16 md:pr-16 md:pl-24 overflow-hidden"
+        style={{ background: '#FFFFFF' }}
       >
-        <div className="absolute bottom-6 right-8 font-bold select-none pointer-events-none"
-          style={{ fontSize: '10rem', color: 'rgba(234,88,12,0.05)', lineHeight: 1, fontFamily: 'serif' }}>
+        <div className="absolute bottom-4 right-4 md:bottom-6 md:right-8 font-bold select-none pointer-events-none"
+          style={{ fontSize: 'clamp(4rem, 18vw, 10rem)', color: 'rgba(234,88,12,0.05)', lineHeight: 1, fontFamily: 'serif' }}>
           {current.number}
         </div>
 
@@ -136,7 +135,7 @@ function VisionSection() {
           className="relative z-10"
           style={{ maxWidth: '560px' }}
         >
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-4 md:mb-6">
             <div style={{ width: '2rem', height: '2px', background: '#F97316', borderRadius: '2px' }} />
             <span style={{ color: '#F97316', fontSize: '0.65rem', letterSpacing: '0.2em', fontWeight: 600 }}>
               {current.label}
@@ -146,8 +145,8 @@ function VisionSection() {
           <motion.h2
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.08 }}
-            className="font-bold leading-tight mb-8"
-            style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)', color: '#111827', fontFamily: '"Playfair Display", "Georgia", serif', letterSpacing: '-0.02em' }}
+            className="font-bold leading-tight mb-6 md:mb-8"
+            style={{ fontSize: 'clamp(1.9rem, 6vw, 3rem)', color: '#111827', fontFamily: '"Playfair Display", "Georgia", serif', letterSpacing: '-0.02em' }}
           >
             {current.headline[0]}<br />
             {current.headline[1]}{' '}
@@ -157,7 +156,7 @@ function VisionSection() {
           <motion.p
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.16 }}
-            style={{ color: '#4B5563', fontSize: '1.05rem', lineHeight: '1.85', marginBottom: '2rem' }}
+            style={{ color: '#4B5563', fontSize: 'clamp(0.95rem, 2vw, 1.05rem)', lineHeight: '1.75', marginBottom: '1.5rem' }}
           >
             {current.description}
           </motion.p>
@@ -165,7 +164,7 @@ function VisionSection() {
           <motion.div
             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.24 }}
-            className="flex flex-wrap gap-3 mb-10"
+            className="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-10"
           >
             {current.tags.map((tag) => (
               <motion.span key={tag} whileHover={{ y: -2 }} className="cursor-default" style={{
@@ -200,6 +199,7 @@ function VisionSection() {
 
 export default function Home() {
   const navigate = useNavigate();
+
   const testimonials = [
     { quote: "Chota Se Bada transformed our clinic's online presence completely. Bookings went up 3x in 2 months.", client: 'Dr. Rajeev Nair', company: 'NovaCare Clinic', rating: 5 },
     { quote: 'Our food brand went from 200 to 20,000 followers in 3 months. The content quality is unmatched.', client: 'Priya Tiwari', company: 'SpiceBox Foods', rating: 5 },
@@ -212,10 +212,10 @@ export default function Home() {
   return (
     <div className="bg-white">
       {/* Hero */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Background with slow zoom */}
+      <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden py-14 md:h-screen md:py-0 bg-[#FFFFFF]">
+        {/* Background Video */}
         <motion.div
-          className="absolute inset-0 w-full h-full"
+          className="absolute inset-0 w-full h-full z-0"
           initial={{ scale: 1 }}
           animate={{ scale: 1.08 }}
           transition={{ duration: 20, repeat: Infinity, repeatType: 'reverse', ease: 'linear' }}
@@ -229,94 +229,112 @@ export default function Home() {
             playsInline
           />
         </motion.div>
-        {/* Stronger dark overlay for readability */}
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0.80) 100%)' }} />
-        <div className="w-full relative z-10 pt-20 px-6 md:px-12 flex justify-center">
-          <div className="space-y-5 max-w-3xl text-center">
-            {/* Badge */}
-            <motion.div
-              className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2"
+
+        {/* Dark overlay for contrast */}
+        <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+        
+        <div className="w-full relative z-10 pt-12 px-4 sm:px-6 md:px-12 flex justify-center">
+          <div className="space-y-6 max-w-5xl text-center flex flex-col items-center">
+            
+            {/* Pill */}
+            <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-black/40 backdrop-blur-sm mb-2"
             >
-              <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse" />
-              <span className="text-white text-xs font-semibold tracking-widest uppercase">
-                India&apos;s Content, Branding &amp; Creator Management Agency
+              <div className="w-2 h-2 rounded-full bg-[#F97316]"></div>
+              <span className="text-white/90 text-[10px] sm:text-xs md:text-sm font-bold tracking-widest uppercase">
+                India's Content, Branding & Creator Management Agency
               </span>
             </motion.div>
+
+            {/* Heading */}
+            <h1 className="font-sans leading-tight flex flex-col items-center justify-center gap-1 sm:gap-2">
+              <motion.span 
+                className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              >
+                We Turn Creators Into
+              </motion.span>
+              
+              <motion.span 
+                className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#F97316] tracking-tight"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              >
+                Brands
+              </motion.span>
+              
+              <motion.span 
+                className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight italic"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              >
+                And Brands Into <span className="text-[#F97316]">Stories</span>
+              </motion.span>
+            </h1>
  
-            {/* Heading — fade in */}
-            <motion.h1
-              className="font-display leading-tight"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35, duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <span className="block text-4xl md:text-5xl lg:text-6xl font-extrabold text-white" style={{ letterSpacing: '-0.025em' }}>
-                We Turn Creators Into{' '}
-                <span className="text-orange-400">Brands</span>
-              </span>
-              <span className="block text-4xl md:text-5xl lg:text-6xl font-extrabold italic text-white mt-2" style={{ letterSpacing: '-0.025em' }}>
-                And Brands Into{' '}
-                <span className="text-orange-400">Stories</span>
-              </span>
-            </motion.h1>
- 
-            {/* Subtitle — fade in with delay */}
+            {/* Subtitle */}
             <motion.p
-              className="text-white/80 text-base md:text-lg max-w-2xl mx-auto"
-              style={{ lineHeight: 1.7 }}
+              className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto font-medium mt-4 sm:mt-6"
+              style={{ lineHeight: 1.6 }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.7 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
             >
-              Content, social media, and digital experiences built to grow
-              audiences, strengthen brands, and create meaningful online
-              presence.
+              Content, social media, and digital experiences built to grow audiences, strengthen brands, and create meaningful online presence.
             </motion.p>
  
-            {/* CTA Buttons — slide up */}
+            {/* CTA Buttons */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 pt-3 justify-center"
-              initial={{ opacity: 0, y: 30 }}
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-6 sm:pt-8 justify-center items-center w-full sm:w-auto"
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.85, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ delay: 0.6, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
               <motion.button
-                className="hero-cta-primary text-base px-9 py-4 rounded-xl font-bold transition-all duration-300"
+                className="w-full sm:w-auto text-sm sm:text-base md:text-lg px-8 py-3.5 sm:py-4 rounded-xl font-bold transition-all duration-300 flex items-center justify-center gap-2"
                 style={{
-                  background: 'linear-gradient(135deg, #F97316 0%, #EA580C 100%)',
-                  color: '#fff',
+                  background: '#F97316',
+                  color: '#FFFFFF',
                   border: 'none',
-                  cursor: 'pointer',
-                  boxShadow: '0 4px 20px rgba(249,115,22,0.4)',
-                  fontSize: '1.05rem',
                 }}
-                whileHover={{ scale: 1.04, boxShadow: '0 8px 32px rgba(249,115,22,0.5)' }}
-                whileTap={{ scale: 0.97 }}
+                whileHover={{ scale: 1.02, backgroundColor: '#EA580C' }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => navigate('/contact')}
               >
-                Book a Free Strategy Call →
+                Book a Free Strategy Call &rarr;
               </motion.button>
+              
               <motion.button
-                className="text-white border-2 border-orange-400/50 hover:border-orange-400 px-9 py-4 rounded-xl font-semibold transition-all duration-300 backdrop-blur-sm"
-                style={{ background: 'rgba(255,255,255,0.05)', fontSize: '1.05rem', cursor: 'pointer' }}
-                whileHover={{ scale: 1.04, background: 'rgba(249,115,22,0.12)' }}
-                whileTap={{ scale: 0.97 }}
-                onClick={() => navigate('/services')}
+                className="w-full sm:w-auto text-sm sm:text-base md:text-lg px-8 py-3.5 sm:py-4 rounded-xl font-bold transition-all duration-300 backdrop-blur-sm"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  color: '#FFFFFF',
+                  border: '1px solid rgba(255,255,255,0.3)',
+                }}
+                whileHover={{ scale: 1.02, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => navigate('/our-work')}
               >
                 View Our Work
               </motion.button>
             </motion.div>
           </div>
         </div>
+        
         <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 cursor-pointer"
+          animate={{ y: [0, 8, 0], opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
         >
-          <FaChevronDown size={22} className="text-white/60" />
+          <FaChevronDown size={24} className="text-white" />
         </motion.div>
       </section>
 

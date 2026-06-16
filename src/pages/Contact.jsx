@@ -146,7 +146,7 @@ export default function Contact() {
       </section>
 
       {/* Map */}
-      <section className="section py-12" style={{ background: '#fff7ed' }}>
+      <section className="section py-12" style={{ background: '#FFFFFF' }}>
         <div className="section-container">
           <div className="rounded-3xl overflow-hidden h-96 flex items-center justify-center" style={{ border: '1px solid #fed7aa', background: 'linear-gradient(135deg, #fff7ed, #ffedd5)' }}>
             <div className="text-center">
