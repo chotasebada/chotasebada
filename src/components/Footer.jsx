@@ -1,13 +1,14 @@
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaInstagram, FaYoutube, FaLinkedin, FaBehance } from 'react-icons/fa';
+import { FaInstagram, FaYoutube, FaLinkedin, FaFacebook, FaTwitter } from 'react-icons/fa';
 import logo from '../assets/4e47a432-b57c-4c78-8106-a97027500496-removebg-preview.png';
 
 const socialLinks = [
-  { icon: FaInstagram, label: 'Instagram', href: '#' },
-  { icon: FaYoutube, label: 'YouTube', href: '#' },
-  { icon: FaLinkedin, label: 'LinkedIn', href: '#' },
-  { icon: FaBehance, label: 'Behance', href: '#' },
+  { icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/chota.se.bada?igsh=amhtOWlhc2dlOHh4' },
+  { icon: FaYoutube, label: 'YouTube', href: 'https://youtube.com/@chota.sebada?si=0lKyV8PkD3bQ_Opr' },
+  { icon: FaLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/chotasebada-marketing-5567b4416?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
+  { icon: FaFacebook, label: 'Facebook', href: 'https://www.facebook.com/share/18hevhyBdP/' },
+  { icon: FaTwitter, label: 'Twitter', href: 'https://x.com/ChotaseBADA' },
 ];
 
 export default function Footer() {
@@ -43,6 +44,8 @@ export default function Footer() {
                   <motion.a
                     key={social.label}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={social.label}
                     className="flex items-center justify-center"
                     style={{
@@ -125,6 +128,8 @@ export default function Footer() {
                   <motion.a
                     key={`footer-contact-${social.label}`}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={social.label}
                     style={{ color: '#6B7280', transition: 'color 0.2s' }}
                     whileHover={{ y: -3, color: '#F97316' }}

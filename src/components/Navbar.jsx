@@ -106,10 +106,10 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <Link
           to="/contact"
-          className="hidden md:block px-6 py-2.5 rounded-lg font-semibold transition-all duration-300 bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 hover:border-white/40 shadow-sm"
-          style={{ fontSize: '1.058rem' }}
+          className="hidden lg:block px-4 py-2.5 rounded-lg font-semibold transition-all duration-300 bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 hover:border-white/40 shadow-sm whitespace-nowrap"
+          style={{ fontSize: '0.95rem' }}
         >
-          Book a Free Strategy Call →
+          Start a Project →
         </Link>
 
         {/* Mobile hamburger + dropdown wrapper */}

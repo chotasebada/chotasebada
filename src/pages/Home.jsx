@@ -297,19 +297,17 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
-              <motion.button
+              <motion.a
+                href="https://calendly.com/sreedharchaithu07/free-promotion-slot-chotasebada"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto text-sm sm:text-base md:text-lg px-8 py-3.5 sm:py-4 rounded-xl font-bold transition-all duration-300 flex items-center justify-center gap-2"
-                style={{
-                  background: '#F97316',
-                  color: '#FFFFFF',
-                  border: 'none',
-                }}
+                style={{ background: '#F97316', color: '#FFFFFF', border: 'none' }}
                 whileHover={{ scale: 1.02, backgroundColor: '#EA580C' }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => navigate('/contact')}
               >
-                Book a Free Strategy Call &rarr;
-              </motion.button>
+                Book a Free Slot &rarr;
+              </motion.a>
               
               <motion.button
                 className="w-full sm:w-auto text-sm sm:text-base md:text-lg px-8 py-3.5 sm:py-4 rounded-xl font-bold transition-all duration-300 backdrop-blur-sm"

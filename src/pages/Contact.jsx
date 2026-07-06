@@ -1,6 +1,14 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaInstagram, FaYoutube, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaInstagram, FaYoutube, FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa';
+
+const socialLinks = [
+  { Icon: FaInstagram, href: 'https://www.instagram.com/chota.se.bada?igsh=amhtOWlhc2dlOHh4' },
+  { Icon: FaYoutube, href: 'https://youtube.com/@chota.sebada?si=0lKyV8PkD3bQ_Opr' },
+  { Icon: FaLinkedin, href: 'https://www.linkedin.com/in/chotasebada-marketing-5567b4416?utm_source=share_via&utm_content=profile&utm_medium=member_android' },
+  { Icon: FaFacebook, href: 'https://www.facebook.com/share/18hevhyBdP/' },
+  { Icon: FaTwitter, href: 'https://x.com/ChotaseBADA' },
+];
 import { openWhatsApp } from '../utils/contact';
 
 export default function Contact() {
@@ -83,8 +91,8 @@ export default function Contact() {
 
               <p className="text-gray-900 font-semibold mb-4">Follow Us</p>
               <div className="flex gap-4">
-                {[FaInstagram, FaYoutube, FaLinkedin, FaTwitter].map((Icon, i) => (
-                  <a key={i} href="#" className="w-10 h-10 rounded-lg flex items-center justify-center transition-all" style={{ background: '#fff7ed', border: '1px solid #fed7aa', color: '#F97316' }}>
+                {socialLinks.map(({ Icon, href }, i) => (
+                  <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg flex items-center justify-center transition-all" style={{ background: '#fff7ed', border: '1px solid #fed7aa', color: '#F97316' }}>
                     <Icon />
                   </a>
                 ))}
