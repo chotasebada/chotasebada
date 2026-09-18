@@ -1,19 +1,23 @@
-import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
-import Home from './pages/Home';
-import Services from './pages/Services';
-import About from './pages/About';
-import Careers from './pages/Careers';
-import Contact from './pages/Contact';
-import OurWork from './pages/OurWork';
+import { Routes, Route, useLocation } from "react-router-dom";
+import StudioNav from "./components/StudioNav";
+import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+import Home from "./pages/Home";
+import Services from "./pages/Services";
+import About from "./pages/About";
+import Careers from "./pages/Careers";
+import Contact from "./pages/Contact";
+import OurWork from "./pages/OurWork";
+import Process from "./pages/Process";
+import SmoothScroll from "./components/SmoothScroll";
 
 export default function App() {
+  const isHome = useLocation().pathname === "/";
   return (
     <>
       <ScrollToTop />
-      <Navbar />
+      <SmoothScroll />
+      {!isHome && <StudioNav />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
@@ -21,8 +25,9 @@ export default function App() {
         <Route path="/careers" element={<Careers />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/our-work" element={<OurWork />} />
+        <Route path="/process" element={<Process />} />
       </Routes>
-      <Footer />
+      {!isHome && <Footer />}
     </>
   );
 }

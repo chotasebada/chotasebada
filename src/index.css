@@ -16,6 +16,12 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html.lenis,
+html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: clip; }
+
 body {
   background: #FFFFFF;
   color: #1A1A1A;
@@ -26,79 +32,14 @@ body {
 /* ─── Typography Improvements ─── */
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Clash Display", "Syne", sans-serif;
+  @apply font-display;
   font-weight: 800;
   letter-spacing: -0.02em;
 }
 
-/* Improve paragraph readability — slightly darker grey */
+/* Improve paragraph readability — warm gray */
 p {
-  color: #374151;
-}
-
-/* ─── Section layout ─── */
-
-.section {
-  padding: 3.5rem 0;
-  width: 100%;
-}
-
-.section-container {
-  width: 100%;
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-/* ─── Buttons ─── */
-
-.btn-primary {
-  display: inline-block;
-  background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
-  color: #FFFFFF;
-  font-weight: 700;
-  padding: 0.875rem 2rem;
-  border-radius: 0.75rem;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(249, 115, 22, 0.3);
-}
-.btn-primary:hover {
-  background: linear-gradient(135deg, #EA580C 0%, #DC4A04 100%);
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 28px rgba(249, 115, 22, 0.45);
-}
-.btn-primary:active {
-  transform: translateY(0) scale(0.98);
-}
-
-.btn-secondary {
-  display: inline-block;
-  background: transparent;
-  color: #F97316;
-  font-weight: 600;
-  padding: 0.875rem 2rem;
-  border-radius: 0.75rem;
-  border: 2px solid #F97316;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.btn-secondary:hover {
-  background: #F97316;
-  color: #FFFFFF;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(249, 115, 22, 0.3);
-}
-
-/* ─── Cards ─── */
-
-.glass-card {
-  background: #FFFFFF;
-  border: 1px solid #E5E7EB;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  color: #57534E;
 }
 
 /* ─── Scrollbar ─── */

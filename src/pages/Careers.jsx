@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { openWhatsApp } from '../utils/contact';
+import { Link } from 'react-router-dom';
 import {
-  Video, Palette, Camera, Code2, PenLine,
+  Video, Palette, Camera, Code, PenTool,
   ChevronDown, ChevronUp, MapPin, Clock, Briefcase, DollarSign,
-  CheckCircle2, Star
+  CheckCircle2, Star, ArrowUpRight, Sparkles
 } from 'lucide-react';
+import "../subpages.css";
 
 const JOBS = [
   {
@@ -118,7 +120,7 @@ const JOBS = [
     department: 'Development',
     location: 'Remote / Hyderabad',
     experience: '1–4+ years',
-    Icon: Code2,
+    Icon: Code,
     tagline: 'Build digital experiences that convert.',
     summary:
       'We are seeking a skilled Website Developer to design, develop, and maintain high-performing websites that deliver exceptional user experiences. The ideal candidate has strong technical expertise and the ability to translate business requirements into functional, visually appealing websites.',
@@ -153,7 +155,7 @@ const JOBS = [
     department: 'Content',
     location: 'Remote / Pan India',
     experience: '1–3+ years',
-    Icon: PenLine,
+    Icon: PenTool,
     tagline: 'Write content that hooks, holds, and converts.',
     summary:
       "We're looking for an experienced Telugu content writer who can write high-impact scripts for Reels & short-form videos. If you understand Telugu beyond grammar — culture, emotion, trends, and audience psychology — this role is for you.",
@@ -221,11 +223,15 @@ function JobCard({ job, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.08, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-      className="rounded-2xl overflow-hidden"
+      className="service-row"
       style={{
-        background: '#FFFFFF',
-        border: '1px solid rgba(249,115,22,0.12)',
-        boxShadow: '0 4px 24px rgba(0,0,0,0.04), 0 1px 4px rgba(249,115,22,0.06)',
+        background: '#fffdf8',
+        border: '1px solid #d9d8ce',
+        borderRadius: '14px',
+        marginBottom: '18px',
+        gridTemplateColumns: '1fr',
+        gap: '0',
+        padding: '30px 28px',
       }}
     >
       {/* ── Header ── */}
@@ -234,16 +240,16 @@ function JobCard({ job, index }) {
           {/* Icon badge */}
           <div
             className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center"
-            style={{ background: 'rgba(249,115,22,0.1)' }}
+            style={{ background: 'rgba(245,102,50,0.1)' }}
           >
-            <Icon size={22} color="#F97316" />
+            <Icon size={22} color="#f56632" />
           </div>
 
           <div className="flex-1 min-w-0">
             <div className="flex flex-wrap gap-2 mb-2">
               <span
                 className="text-xs font-semibold px-3 py-1 rounded-full"
-                style={{ background: 'rgba(249,115,22,0.1)', color: '#EA580C', border: '1px solid rgba(249,115,22,0.2)' }}
+                style={{ background: 'rgba(245,102,50,0.1)', color: '#d94f22', border: '1px solid rgba(245,102,50,0.2)' }}
               >
                 {job.department}
               </span>
@@ -260,10 +266,10 @@ function JobCard({ job, index }) {
 
             {/* Meta row */}
             <div className="flex flex-wrap gap-4 text-xs text-gray-500">
-              <span className="flex items-center gap-1"><MapPin size={12} color="#F97316" />{job.location}</span>
-              <span className="flex items-center gap-1"><Clock size={12} color="#F97316" />{job.type}</span>
-              <span className="flex items-center gap-1"><Briefcase size={12} color="#F97316" />{job.experience}</span>
-              <span className="flex items-center gap-1"><DollarSign size={12} color="#F97316" />Competitive</span>
+              <span className="flex items-center gap-1"><MapPin size={12} color="#f56632" />{job.location}</span>
+              <span className="flex items-center gap-1"><Clock size={12} color="#f56632" />{job.type}</span>
+              <span className="flex items-center gap-1"><Briefcase size={12} color="#f56632" />{job.experience}</span>
+              <span className="flex items-center gap-1"><DollarSign size={12} color="#f56632" />Competitive</span>
             </div>
           </div>
         </div>
@@ -275,7 +281,7 @@ function JobCard({ job, index }) {
         <button
           onClick={() => setExpanded((v) => !v)}
           className="mt-5 flex items-center gap-2 text-sm font-semibold transition-colors"
-          style={{ color: '#F97316', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+          style={{ color: '#f56632', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
         >
           {expanded ? (
             <><ChevronUp size={16} /> Hide Details</>
@@ -298,11 +304,11 @@ function JobCard({ job, index }) {
           >
             <div
               className="px-6 sm:px-8 pb-8 pt-2"
-              style={{ borderTop: '1px solid rgba(249,115,22,0.1)' }}
+              style={{ borderTop: '1px solid rgba(245,102,50,0.1)' }}
             >
               {/* Responsibilities */}
               <div className="mb-6 mt-5">
-                <h4 className="text-sm font-bold uppercase tracking-widest mb-3" style={{ color: '#F97316' }}>
+                <h4 className="text-sm font-bold uppercase tracking-widest mb-3" style={{ color: '#f56632' }}>
                   Key Responsibilities
                 </h4>
                 <ul className="space-y-2">
@@ -317,13 +323,13 @@ function JobCard({ job, index }) {
 
               {/* Qualifications */}
               <div className="mb-6">
-                <h4 className="text-sm font-bold uppercase tracking-widest mb-3" style={{ color: '#F97316' }}>
+                <h4 className="text-sm font-bold uppercase tracking-widest mb-3" style={{ color: '#f56632' }}>
                   Preferred Qualifications
                 </h4>
                 <ul className="space-y-2">
                   {job.qualifications.map((item, i) => (
                     <li key={i} className="flex gap-3 text-sm text-gray-600 leading-relaxed">
-                      <CheckCircle2 size={14} color="#F97316" className="flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 size={14} color="#f56632" className="flex-shrink-0 mt-0.5" />
                       {item}
                     </li>
                   ))}
@@ -332,7 +338,7 @@ function JobCard({ job, index }) {
 
               {/* Skills */}
               <div className="mb-6">
-                <h4 className="text-sm font-bold uppercase tracking-widest mb-3" style={{ color: '#F97316' }}>
+                <h4 className="text-sm font-bold uppercase tracking-widest mb-3" style={{ color: '#f56632' }}>
                   Skills
                 </h4>
                 <div className="flex flex-wrap gap-2">
@@ -341,9 +347,9 @@ function JobCard({ job, index }) {
                       key={skill}
                       className="text-xs font-medium px-3 py-1.5 rounded-full"
                       style={{
-                        background: 'rgba(249,115,22,0.08)',
+                        background: 'rgba(245,102,50,0.08)',
                         color: '#7C2D12',
-                        border: '1px solid rgba(249,115,22,0.2)',
+                        border: '1px solid rgba(245,102,50,0.2)',
                       }}
                     >
                       {skill}
@@ -355,9 +361,9 @@ function JobCard({ job, index }) {
               {/* How to apply note */}
               <div
                 className="rounded-xl p-4 mb-6 text-sm text-gray-600 leading-relaxed"
-                style={{ background: 'rgba(249,115,22,0.05)', border: '1px solid rgba(249,115,22,0.15)' }}
+                style={{ background: 'rgba(245,102,50,0.05)', border: '1px solid rgba(245,102,50,0.15)' }}
               >
-                <span className="font-semibold" style={{ color: '#EA580C' }}>📩 How to Apply: </span>
+                <span className="font-semibold" style={{ color: '#d94f22' }}>📩 How to Apply: </span>
                 {job.applyNote}
               </div>
 
@@ -366,12 +372,12 @@ function JobCard({ job, index }) {
                 onClick={handleApply}
                 className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl font-bold text-white text-sm sm:text-base"
                 style={{
-                  background: 'linear-gradient(135deg, #F97316 0%, #EA580C 100%)',
+                  background: 'linear-gradient(135deg, #f56632 0%, #d94f22 100%)',
                   border: 'none',
                   cursor: 'pointer',
-                  boxShadow: '0 4px 20px rgba(249,115,22,0.35)',
+                  boxShadow: '0 4px 20px rgba(245,102,50,0.35)',
                 }}
-                whileHover={{ scale: 1.02, boxShadow: '0 8px 28px rgba(249,115,22,0.45)' }}
+                whileHover={{ scale: 1.02, boxShadow: '0 8px 28px rgba(245,102,50,0.45)' }}
                 whileTap={{ scale: 0.97 }}
               >
                 Apply Now via WhatsApp →
@@ -389,135 +395,92 @@ function JobCard({ job, index }) {
 // ─────────────────────────────────────────────
 export default function Careers() {
   return (
-    <div className="bg-white pt-20">
-
-      {/* ── Hero ── */}
-      <section className="relative py-20 overflow-hidden bg-white">
-        {/* Decorative blobs */}
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            top: '-80px', right: '-80px',
-            width: '400px', height: '400px', borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(249,115,22,0.07) 0%, transparent 70%)',
-          }}
-        />
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            bottom: '-60px', left: '-60px',
-            width: '300px', height: '300px', borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(234,88,12,0.05) 0%, transparent 70%)',
-          }}
-        />
-
+    <main className="studio-page careers-page">
+      <section className="studio-page-hero">
         <motion.div
-          className="text-center relative z-10 px-6"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
         >
-          <div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-5"
-            style={{
-              border: '1px solid rgba(249,115,22,0.3)',
-              background: 'rgba(249,115,22,0.07)',
-              color: '#EA580C',
-            }}
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
-            We're Hiring
-          </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-4" style={{ color: '#1A1A1A', letterSpacing: '-0.02em' }}>
-            Join the{' '}
-            <span style={{ color: '#F97316', fontStyle: 'italic' }}>Team</span>
+          <span className="studio-eyebrow">We&apos;re hiring</span>
+          <h1>
+            Join the
+            <br />
+            <em>team.</em>
           </h1>
-          <p className="text-gray-500 text-lg max-w-xl mx-auto leading-relaxed">
-            We're building India's most exciting content agency. Come build it with us.
+          <p style={{ fontSize: 14, lineHeight: 1.8, color: "#74766b", maxWidth: 480, marginTop: 25 }}>
+            We&apos;re building India&apos;s most exciting content studio.
+            Come build it with us.
           </p>
         </motion.div>
-      </section>
-
-      {/* ── Culture Pillars ── */}
-      <section className="py-12 px-6 bg-white">
-        <div className="max-w-6xl mx-auto grid sm:grid-cols-3 gap-6">
-          {culturePillars.map(({ icon: PillarIcon, title, description }, idx) => (
-            <motion.div
-              key={idx}
-              className="p-7 rounded-2xl"
-              style={{
-                background: '#FFFFFF',
-                border: '1px solid rgba(249,115,22,0.1)',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
-              }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-            >
-              <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-                style={{ background: 'rgba(249,115,22,0.1)' }}
-              >
-                <PillarIcon size={20} color="#F97316" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">{title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{description}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── Job Listings ── */}
-      <section className="py-16 px-6" style={{ background: '#FAFAFA' }}>
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3" style={{ letterSpacing: '-0.02em' }}>
-              Open Positions
-            </h2>
-            <p className="text-gray-500 text-base">{JOBS.length} exciting opportunities waiting for you</p>
-          </motion.div>
-
-          <div className="flex flex-col gap-5">
-            {JOBS.map((job, idx) => (
-              <JobCard key={job.id} job={job} index={idx} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Bottom CTA ── */}
-      <section className="py-16 px-6 text-center bg-white">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-lg mx-auto"
+          className="services-hero-note"
+          initial={{ opacity: 0, rotate: 5 }}
+          animate={{ opacity: 1, rotate: -4 }}
+          transition={{ delay: 0.25 }}
         >
-          <h3 className="text-2xl font-bold text-gray-900 mb-3">Don't see a role that fits?</h3>
-          <p className="text-gray-500 text-sm mb-6 leading-relaxed">
-            We're always looking for talented people. Drop us a message and tell us what you bring to the table.
-          </p>
-          <motion.a
-            href="mailto:chotasebadaofficial@gmail.com"
-            className="inline-block font-bold text-base px-8 py-4 rounded-xl text-white"
-            style={{
-              background: 'linear-gradient(135deg, #F97316 0%, #EA580C 100%)',
-              boxShadow: '0 4px 20px rgba(249,115,22,0.3)',
-            }}
-            whileHover={{ y: -3, boxShadow: '0 12px 32px rgba(234,88,12,0.35)' }}
-            whileTap={{ scale: 0.97 }}
-          >
-            Send Us Your Resume →
-          </motion.a>
+          <Sparkles /> Real brands.
+          <br />
+          <b>Real impact.</b>
         </motion.div>
       </section>
 
-    </div>
+      <section className="services-board">
+        {culturePillars.map(({ icon: PillarIcon, title, description }, idx) => (
+          <motion.article
+            key={title}
+            className="service-row"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ delay: (idx % 3) * 0.06 }}
+          >
+            <span>0{idx + 1}</span>
+            <div className="service-row-icon">
+              <PillarIcon />
+            </div>
+            <div>
+              <h2>{title}</h2>
+              <p>{description}</p>
+            </div>
+            <div className="service-tags">
+              <span>Studio life</span>
+            </div>
+            <Link to="/contact" aria-label={title}>
+              <ArrowUpRight />
+            </Link>
+          </motion.article>
+        ))}
+      </section>
+
+      <section className="studio-page-hero" style={{ minHeight: 0, paddingTop: 0 }}>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <span className="studio-eyebrow">Open positions</span>
+          <h1 style={{ fontSize: "clamp(44px, 5vw, 72px)" }}>
+            {JOBS.length} ways
+            <br />
+            <em>in.</em>
+          </h1>
+        </motion.div>
+      </section>
+
+      <section className="services-board">
+        {JOBS.map((job, idx) => (
+          <JobCard key={job.id} job={job} index={idx} />
+        ))}
+      </section>
+
+      <section className="studio-page-cta">
+        <span>Don&apos;t see a role that fits?</span>
+        <h2>Tell us your superpower.</h2>
+        <Link to="/contact">
+          Send us your resume <ArrowUpRight />
+        </Link>
+      </section>
+    </main>
   );
 }

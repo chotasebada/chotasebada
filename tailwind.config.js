@@ -12,6 +12,14 @@ export default {
         tertiary: "#1A1A1A",
         accent: "#FF4D00",
         gold: "#FFD700",
+        navy: {
+          800: "#1e293b",
+          900: "#0f172a",
+        },
+        teal: {
+          500: "#14b8a6",
+          600: "#0d9488",
+        },
         text: {
           primary: "#FFFFFF",
           secondary: "#A0A0A0",
@@ -21,10 +29,11 @@ export default {
         },
       },
       fontFamily: {
-        display: ["Clash Display", "Syne", "sans-serif"],
+        display: ["Playfair Display", "serif"],
         body: ["DM Sans", "Outfit", "sans-serif"],
       },
       fontSize: {
+        "display-2xl": ["5rem", { lineHeight: "1.1" }],
         "display-xl": ["4rem", { lineHeight: "1.1" }],
         "display-lg": ["3rem", { lineHeight: "1.2" }],
         "display-md": ["2.25rem", { lineHeight: "1.2" }],
