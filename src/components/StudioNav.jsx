@@ -22,13 +22,13 @@ export default function StudioNav() {
               {label}
             </Link>
           ))}
-          <Link to="/contact" className="cs-nav-mobile-call">
-            Let's talk ↗
-          </Link>
+          <a href="https://calendly.com/sreedharchaithu07/free-promotion-slot-chotasebada?month=2026-10" className="cs-nav-mobile-call" target="_blank" rel="noopener noreferrer">
+            Book Free Slot ↗
+          </a>
         </nav>
-        <Link className="cs-nav-call" to="/contact">
-          Let's talk <ArrowUpRight size={17} />
-        </Link>
+        <a className="cs-nav-call" href="https://calendly.com/sreedharchaithu07/free-promotion-slot-chotasebada?month=2026-10" target="_blank" rel="noopener noreferrer">
+          Book Free Slot <ArrowUpRight size={17} />
+        </a>
         <button
           className="cs-menu"
           aria-label={open ? "Close navigation" : "Open navigation"}

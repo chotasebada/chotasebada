@@ -137,16 +137,18 @@ function CallButton({ children = "Book a Free Strategy Call", className = "" }) 
     ref.current?.style.setProperty("--my", "0px");
   }
   return (
-    <Link
+    <a
       ref={ref}
-      to="/contact"
+      href="https://calendly.com/sreedharchaithu07/free-promotion-slot-chotasebada?month=2026-10"
+      target="_blank"
+      rel="noopener noreferrer"
       className={`cs-button ${className}`}
       onPointerMove={move}
       onPointerLeave={reset}
     >
       {children}
       <ArrowUpRight size={18} />
-    </Link>
+    </a>
   );
 }
 
@@ -747,7 +749,7 @@ export default function Home() {
           </div>
         </footer>
 
-        <Link to="/contact" className="cs-mobile-cta">Book a Free Strategy Call <ArrowUpRight size={16} /></Link>
+        <a href="https://calendly.com/sreedharchaithu07/free-promotion-slot-chotasebada?month=2026-10" className="cs-mobile-cta" target="_blank" rel="noopener noreferrer">Book a Free Strategy Call <ArrowUpRight size={16} /></a>
 
         <AnimatePresence>
           {activeProject && <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />}
